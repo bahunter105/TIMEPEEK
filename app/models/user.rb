@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :offers, through: :bookings
   # user created offers
   has_many :owned_offers, foreign_key: "user_id", class_name: "Offer"
+
 end

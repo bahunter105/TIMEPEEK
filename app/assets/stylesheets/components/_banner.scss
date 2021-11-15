@@ -1,0 +1,28 @@
+.banner-home {
+    height: 70vh;
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+}
+
+.p-banner {
+    margin-top: 5px;
+    margin-bottom: 1rem;
+    font-size: x-large;
+    font-weight: bolder;
+    font-family: inherit;
+}
+
+.h1-banner {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: ui-monospace;
+    text-align: center;
+}
+
+.title-banner {
+  text-align: start;
+}
