@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<body>
+  <div class="banner-home" style="background-image: url('<%= asset_url ('delorean.jpeg')%>')">
+    <h1 class="title-banner h1-banner">Time Peek</h1>
+    <p class="p-banner"> Time Travel Experiences Made Easy</p>
+  </div>
+
+
+    <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('religion.jpeg')%>')">
+      Religious
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('sports.jpeg')%>')">
+    Sports
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('music.jpeg')%>')">
+      Music
+    </div>
+  </div>
+
+</body>
