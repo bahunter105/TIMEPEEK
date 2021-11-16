@@ -33,6 +33,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 gem 'cloudinary', '~> 1.16.0'
+gem 'faker'
 
 
 group :development, :test do
