@@ -1,11 +1,18 @@
-
-<body>
-  <div class="banner-home" style="background-image: url('<%= asset_url ('delorean.jpg')%>')">
+<div class="banner-container" style="background-image: url('<%= asset_url ('delorean.jpg')%>')">
+  <%= render "shared/navbar" %>
+  <div class="banner-home" >
     <h1 class="title-banner h1-banner">Time Peek</h1>
-    <p class="p-banner"> Time Travel Experiences Made Easy</p>
+
+    <p class="p-banner">
+    <span id="banner-typed-text"></span>
+    </p>
   </div>
+</div>
 
 
+
+    <div id="page-width">
+    <div class="cards" id="categories">
     <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('religion.jpg')%>')">
       Religious
@@ -18,6 +25,18 @@
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('music.jpg')%>')">
       Music
     </div>
-  </div>
 
-</body>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('war.jpg')%>')">
+      Famous Battles
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('conspiracy.jpg')%>')">
+      Conspiracies
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_url ('marylin.jpg')%>')">
+      Famous Deaths
+    </div>
+
+
+  </div>
