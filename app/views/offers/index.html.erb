@@ -5,14 +5,14 @@
     <% @offers.each do |offer| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card-trip">
-          <img src="https://media.playmobil.com/i/playmobil/70317_product_detail/Back%20to%20the%20Future%20Delorean?locale=es-ES,es,*&$pdp_product_zoom_xl$&strip=true&qlt=80&fmt.jpeg.chroma=1,1,1&unsharp=0,1,1,7&fmt.jpeg.interlaced=true" />
+          <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
           <div class="card-trip-infos">
             <div>
-              <h2>offer.title</h2>
+              <h2>offer.name</h2>
               <p>ratings</p>
             </div>
             <h2 class="card-trip-pricing">£ offer.price</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar dropdown-toggle" />
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class:"card-trip-user avatar dropdown-toggle" />
           </div>
         </div>
       </div>
