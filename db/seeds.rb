@@ -7,32 +7,26 @@ User.destroy_all
 
 puts "Creating Offers and Users"
 
-6.times do
-  Offer.create(
-    file = URI.open('https://media.playmobil.com/i/playmobil/70317_product_detail/Back%20to%20the%20Future%20Delorean?locale=es-ES,es,*&$pdp_product_zoom_xl$&strip=true&qlt=80&fmt.jpeg.chroma=1,1,1&unsharp=0,1,1,7&fmt.jpeg.interlaced=true'),
-    offer = Offer.new(title: 'NES', body: "A great console"),
-    offer.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png'),
-    name: Faker::Movies::BackToTheFuture.character,
-    price: rand(1000..9000),
-    description: Faker::Movies::Lebowski.quote,
-    category: Faker::Beer.style,
-    rating: rand(1..5),
-    max_travellers: rand(1..4))
+3.times do
+  user1 = User.new
+  user1.email = 'user1@timepeep.com'
+  user1.encrypted_password = 'timepeep'
+  user1.save!
+  puts user1.name
+  6.times do
+    new_offer = Offer.create(
+      name: Faker::Movies::BackToTheFuture.character,
+      price: rand(1000..9000),
+      description: Faker::Movies::Lebowski.quote,
+      category: Faker::Beer.style,
+      rating: rand(1..5),
+      max_travellers: rand(1..4))
+    file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
+    new_offer.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    new_offer.user = user1
+    new_offer.save
+    puts new_offer.name
+  end
 end
-
-user1 = User.new
-user1.email = 'user1@timepeep.com'
-user1.encrypted_password = 'timepeep'
-user1.save!
-
-user2 = User.new
-user2.email = 'user2@timepeep.com'
-user2.encrypted_password = 'timepeep'
-user2.save!
-
-user3 = User.new
-user3.email = 'user3@timepeep.com'
-user3.encrypted_password = 'timepeep'
-user3.save!
 
 puts "done"
