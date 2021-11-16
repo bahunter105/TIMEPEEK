@@ -12,11 +12,11 @@
   </head>
 
   <body>
-
-  <%= render 'pages/navbar' %>
-
+    <% unless controller_name == "pages" && action_name == "home" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,11 +1,16 @@
 .banner-home {
-    height: 70vh;
+    height: 90vh;
     background-size: cover;
     background-position: bottom;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 60px;
+}
+
+.banner-container{
+    background-size: cover;
+    background-position: bottom;
 }
 
 .p-banner {
