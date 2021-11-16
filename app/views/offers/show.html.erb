@@ -1,0 +1,14 @@
+<h1 class="text-center"><%= @offer.title %></h1>
+
+<div class="container">
+
+  <div class="row">
+    <div class ="photo-row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="card showmaincard"
+        style="background-image: url('<%= cl_image_path @offer.photo.path %>')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
