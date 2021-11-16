@@ -1,12 +1,11 @@
-<h1 class="text-center"><%= @offer.title %></h1>
 
-<div class="container">
-
-  <div class="row">
-    <div class ="photo-row">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card showmaincard"
-        style="background-image: url('<%= cl_image_path @offer.photo.path %>')">
+<h1 class="text-center"><%= @offer.name %></h1>
+<div class=“container”>
+  <div class=“row”>
+    <div class =“photo-row”>
+      <div class=“col-xs-12 col-sm-6”>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @offer.photo.key, height: 300, crop: :fill %>')">
+          Cool article
         </div>
       </div>
     </div>
