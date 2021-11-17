@@ -19,6 +19,7 @@
   border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
+  margin: 19px;
 }
 
 .btn-flat:hover {
@@ -47,13 +48,129 @@
 }
 
 #eighty{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Khula', sans-serif;
   font-weight: bolder;
   text-align: center;
   font-size: 50px;
 }
 
 #flanders{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Khula', sans-serif;
   font-size: 20px;
+}
+
+.undercard{
+  text-align: center;
+}
+
+.eighty{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.banner {
+    padding: 0px;
+    height: 64vh;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: right;
+    margin:40px 0px;
+}
+
+.text-center {
+    font-size: 5.5rem;
+    font-family: 'Khula';
+    font-weight: bolder;
+}
+
+.info-box{
+  display:flex;
+}
+
+#roswell {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: 'Khula';
+}
+
+.info-title {
+  font-size: 20px;
+  margin-block-end: auto;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.info-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+}
+
+#info-flex{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 1rem;
+    background-color: #F4F4F4;
+    font-family: 'Khula';
+}
+
+.read-more-container{
+    display: flex;
+    flex-direction: column;
+    color: #111;
+    gap: 1rem;
+}
+
+.container{
+    padding: 2rem;
+    background-color: black;
+    border-radius: 2px;
+    line-height: 1.4rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,.1);
+}
+
+.read-more-btn{
+    color: #0984e3;
+}
+
+.read-more-text{
+    display: none;
+}
+
+.read-more-text--show{
+    display: inline;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    font-family: 'Khula';
 }

@@ -1,12 +1,82 @@
-
-<h1 class="text-center"><%= @offer.name %></h1>
 <div class=“container”>
-        <div id=style>
-        <h2 id="eighty">THE EIGHTY YEARS WAR</h2>
-          <%# <h3 class="price" class="date" class="travellers" class="rating">€<%=@offer.price%><%=@offer.date%><%=@offer.rating%><%=@offer.travellers%></h3> %>
-          <p id="flanders">In October 1555, Emperor Charles V of the Holy Roman Empire began the gradual abdication of his several crowns. His son Philip II took over as sovereign of the Habsburg Netherlands,   which at the time was a personal union of seventeen provinces with little in common beyond their sovereign and a constitutional framework. This framework, assembled during the preceding reigns of Burgundian and Habsburg rulers, divided power between city governments, local nobility, provincial States, royal stadtholders, the States General of the Netherlands, and the central government (possibly represented by a Regent) assisted by three councils: the Council of State, the Privy Council and the Council of Finances. The balance of power was heavily weighted toward the local and regional governments. Jump into some of the major battles during this epic war setting in which the famous Spanish Tercios took on the Dutch forces time and time again. Smell the gunpowder and watch some of the most elite soldiers fight it out, to what would eventually result in the Peace of Munster agreement which would separate the battlefields between the now known territory of the Netherlands and Belgium.</p>
-        <a class="btn btn-flat" href="#">Book now</a>
-        </div>
+  <%= cl_image_tag @offer.photo.key, class:"banner" %>
+  <h1 class="text-center"><%= @offer.name %></h1>
+
+  <div id="info-flex">
+    <div class="info-box">
+      <div class="info-icon">
+      <i class="fas fa-users"></i>
+      </div>
+      <div class="info-text">
+        <p class="info-title">Travellers</p>
+        <p> <%=@offer.max_travellers%></p>
+      </div>
+    </div>
+
+
+    <div class="info-box">
+      <div class="info-icon">
+      <i class="far fa-calendar-alt"></i>
+      </div>
+      <div class="info-text">
+        <p class="info-title">Date</p>
+        <p><%=@offer.date.year%></p>
+      </div>
+    </div>
+
+
+    <div class="info-box">
+      <div class="info-icon">
+      <i class="fas fa-star"></i>
+      </div>
+      <div class="info-text">
+        <p class="info-title">Rating</p>
+        <p><%=@offer.rating%>/5</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-icon">
+      <i class="fas fa-hand-holding-usd"></i>
+      </div>
+      <div class="info-text">
+        <p class="info-title">Price</p>
+        <p>€<%=@offer.price%></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-more-container">
+    <p>Roswell Incident A must see time adventure exclusive, The Roswell incident is the 1947 recovery of United States Army Air Forces balloon debris from a ranch near Corona, New Mexico by Roswell Army Air Field officers, and the subsequent conspiracy theories claiming that the debris involved a flying saucer, and that the truth had been covered up by the United States government.
+      <span class="read-more-text"> Roswell Incident A must see time adventure exclusive, The Roswell incident is the 1947 recovery of United States Army Air Forces balloon debris from a ranch near Corona, New Mexico by Roswell Army Air Field officers, and the subsequent conspiracy theories claiming that the debris involved a flying saucer, and that the truth had been covered up by the United States government. On July 8, 1947, Roswell Army Air Field issued a press release stating that they had recovered a “flying disc”. The Army quickly retracted the statement and said instead that the crashed object was a conventional weather balloon.The Roswell incident did not surface again until the late 1970s, when retired lieutenant colonel Jesse Marcel, in an interview with ufologist Stanton Friedman, said he believed the debris he retrieved was extraterrestrial. Ufologists began promoting a variety of increasingly elaborate conspiracy theories, claiming that one or more alien spacecraft had crash-landed and that the extraterrestrial occupants had been recovered by the military, which then engaged in a cover-up.
+      </span>
+    </p>
+    <span class="read-more-btn">Read More...</span>
+  </div>
+
+
+  <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#exampleModal">
+  Book Now
+</button>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Time Adventure Has Been Successfully Booked</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Congrats You Are Officially A Time Traveller
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
