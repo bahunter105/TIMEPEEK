@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one_attached :photo
   has_many :bookings
   #user booked offers
   has_many :offers, through: :bookings
   # user created offers
   has_many :owned_offers, foreign_key: "user_id", class_name: "Offer"
-  has_one_attached :photo
 end

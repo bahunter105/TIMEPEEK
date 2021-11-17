@@ -1,57 +1,37 @@
 <div id="page-width">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
+  <%# <a class="navbar-brand" href="#"> %>
     <%# <img src="/assets/deloreanlogo.jpg"> %>
-    <%= image_tag "delorean.png" %>
-  </a>
+    <%= link_to root_path do %>
+      <%= image_tag "delorean.png", class: "navbar-brand-image"%>
+    <% end %>
+  <%# </a> %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Categories", "#categories", class: "nav-color-white nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log In", "#login", class: "nav-color-white nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <i class="fas fa-user", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ></i>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-
-
-  <%# <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-color-white nav-link" href="#categories">Categories</a>
+        <%= link_to "Categories", "#categories", class: "nav-color-white nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-color-white nav-link" href="#">Log In</a>
+      <li class="nav-item active">
+        <%= link_to "About Us", about_path, class: "nav-color-white nav-link" %>
       </li>
+    <% if user_signed_in? %>
       <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dyo2a4d1n/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1637149216/development/oztg09wfo6ihl12ndbsrf2labbk8.jpg" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%# <a class="dropdown-item" href=  #">Action</a>
+          <a class="dropdown-item" href="#">Another action</a> %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-color-white nav-link" %>
+      </li>
+    <% end %>
     </ul>
   </div>
 </div>
-</div> %>

@@ -1,6 +1,7 @@
 
 require 'faker'
 require "open-uri"
+require "byebug"
 
 puts "Cleanig DB"
 Offer.destroy_all
@@ -12,11 +13,14 @@ puts "Creating Offers and Users"
 user1 = User.new
 user1.first_name = 'Sally'
 user1.last_name = 'Secret'
-user1.email = 'user1@timepeep.com'
+user1.email = 'user1@timepeek.com'
 user1.password = '123456'
 user1.password_confirmation = '123456'
 user1.encrypted_password = '123456'
-user1.save!
+user1.save
+file = File.open('app/assets/images/sally.jpg')
+user1.photo.attach(io: file, filename: 'sally.jpg', content_type: 'image/jpg')
+
 puts user1.email
 new_offer = Offer.create(
   name: 'Birth of Jesus',
@@ -65,10 +69,12 @@ puts new_offer.name
 user2 = User.new
 user2.first_name = 'Bob'
 user2.last_name = 'Smith'
-user2.email = 'user2@timepeep.com'
+user2.email = 'user2@timepeek.com'
 user2.password = '123456'
 user2.password_confirmation = '123456'
 user2.encrypted_password = '123456'
+file = File.open('app/assets/images/bob.jpg')
+user2.photo.attach(io: file, filename: 'bob.jpg', content_type: 'image/jpg')
 user2.save!
 puts user2.email
 
