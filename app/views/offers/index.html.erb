@@ -1,20 +1,21 @@
-<h1 class="text-center title-index-padding"><strong id="title-index">Your Next Mindblowing Trips</strong></h1>
+<h1 class="text-center title-index-padding" id="title-index"><strong>What's your destination?</strong></h1>
 
-<div class="container-fluid">
+<div class="main-container">
   <div class="row">
     <% @offers.each do |offer| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card-trip">
-          <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-trip-infos">
-            <div>
-              <h2>offer.name</h2>
-              <p>ratings</p>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+        <%= link_to offer_path(offer) do %>
+          <div class="card-trip">
+            <%= cl_image_tag offer.photo.key, height: 200, width: 400, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h2 class="card-name"><%=offer.name%></h2>
+                <p><i class="fas fa-star"></i>   <%=offer.rating%></p>
+              </div>
+              <h2 class="card-trip-pricing">€<%= offer.price %></h2>
             </div>
-            <h2 class="card-trip-pricing">£ offer.price</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class:"card-trip-user avatar dropdown-toggle" />
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
