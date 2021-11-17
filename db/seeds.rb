@@ -1,7 +1,6 @@
 
 require 'faker'
 require "open-uri"
-require "byebug"
 
 puts "Cleanig DB"
 Offer.destroy_all
