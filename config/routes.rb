@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
 
   resources :offers do
-    resources :bookings
+    resources :bookings, only: [:create,:show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
