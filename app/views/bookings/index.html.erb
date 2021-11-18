@@ -1,0 +1,34 @@
+<h1>Your Travel Bookings</h1>
+<p>
+<%= @user.first_name  %> <%= @user.last_name  %>
+</p>
+
+<% if @bookings.nil? %>
+   <p>You have no Bookings!</p>
+<% else %>
+  <% @bookings.each do |booking| %>
+    <ul>
+      <li>Offer name: <%= booking.offer.name  %> </li>
+      <li>Booking date: <%= booking.date  %> </li>
+      <li>Number of Travellers: <%= booking.no_of_travellers  %> </li>
+      <li>Price: €<%= booking.offer.price  %> </li>
+      <li>Confirmation Status: </li>
+    </ul>
+  <% end %>
+<% end %>
+
+
+<% if @user.offers.nil? %>
+   <p>You have no Offers!</p>
+<% else %>
+  <h1>Your Offers </h1>
+  <% @user.offers.each do |offer| %>
+    <%= link_to offer_path(offer) do %>
+      <ul>
+        <li>Offer name:  <%= offer.name %> </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "Create an Offer", new_offer_path, class: "btn btn-primary" %>

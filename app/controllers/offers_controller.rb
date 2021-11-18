@@ -23,4 +23,10 @@ class OffersController < ApplicationController
       render :new
     end
   end
+
+  private
+  def offer_params
+    params.require(:offer).permit(:name, :price, :description, :category, :max_travellers, :photo)
+  end
+
 end
