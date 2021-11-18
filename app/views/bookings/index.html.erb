@@ -18,16 +18,14 @@
 <% end %>
 
 
-<% if @user.offers.nil? %>
+<% if @offers.nil? %>
    <p>You have no Offers!</p>
 <% else %>
   <h1>Your Offers </h1>
-  <% @user.offers.each do |offer| %>
-    <%= link_to offer_path(offer) do %>
+  <% @offers.each do |offer| %>
       <ul>
-        <li>Offer name:  <%= offer.name %> </li>
+         <li>Offer name: <%= link_to offer_path(offer) do %> <%= offer.name %> <% end %> </li>
       </ul>
-    <% end %>
   <% end %>
 <% end %>
 

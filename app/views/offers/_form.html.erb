@@ -3,9 +3,9 @@
 
   <%= f.input :name, placeholder: 'What is your time travel name?'%>
 
-  <%= f.input :date%>
+  <%= f.input :date, as: :date, html5: true %>
 
-  <%= f.input :category, collection: [['Music'], ['Sports'], ['Religious'], ['Conspiracies'], ['Famous battles'], ['Famous death']]%>
+  <%= f.input :category, collection: ['Music', 'Sports', 'Religious', 'Conspiracies', 'Famous battles', 'Famous deaths']%>
 
   <%= f.input :max_travellers, input_html: { max: 10 }%>
 
