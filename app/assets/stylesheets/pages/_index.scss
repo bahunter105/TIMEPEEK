@@ -1,22 +1,5 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
-
-#title-index {
-  font-size: 60px;
-  margin: 40px;
-}
-
-.main-container {
-  display: flex;
-  margin: 0px 40px;
-}
-
-.cards {
-  flex-grow: 1;
-}
-
-.fa-star {
-  color: rgba($color: #e9d200, $alpha: 1.0);
-  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.75)
-}
+@import "offers";
+@import "new";

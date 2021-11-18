@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_143327) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "date"
+    t.string "image_name"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
