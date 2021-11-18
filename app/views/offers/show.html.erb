@@ -74,15 +74,13 @@
         </button>
       </div>
       <div class="modal-body">
-          <%= simple_form_for [@offer,@booking] do |f| %>
-          <% @booking.user = current_user %>
-          <% @booking.offer = @offer %>
+        <%= simple_form_for [@offer, @booking] do |f| %>
           <%= f.input :date, as: :date, html5: true %>
           <%= f.input :no_of_travellers %>
           <%= f.button :submit, class: "submitbtn-booking"%>
-      <% end %>
+        <% end %>
       </div>
-      
+
       </div>
     </div>
   </div>
