@@ -49,6 +49,9 @@
   <div class="read-more-container">
     <p>
       <%= @offer.description%>
+      <span class="read-more-text">
+        <%= @offer.description%>
+      </span>
     </p>
     <span class="read-more-btn">Read More...</span>
   </div>
@@ -65,17 +68,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Time Adventure Has Been Successfully Booked</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Book Your Time Adventure</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Congrats You Are Officially A Time Traveller
+        <%= simple_form_for [@offer, @booking] do |f| %>
+          <%= f.input :date, as: :date, html5: true %>
+          <%= f.input :no_of_travellers %>
+          <%= f.button :submit, class: "submitbtn-booking"%>
+        <% end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+
       </div>
     </div>
   </div>
