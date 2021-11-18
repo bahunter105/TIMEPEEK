@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+
+  def index
+    @offer = Offer.first
+    @offers = current_user.offers
+    @user = current_user
+    @bookings = current_user.bookings
+  end
+
   def new
     @booking = Booking.new
   end
@@ -9,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = @offer
     if @booking.save
-      redirect_to offer_path(@offer)
+      redirect_to offer_bookings_path(@offer)
     else
       render "offers/show"
     end
