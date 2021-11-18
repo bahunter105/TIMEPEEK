@@ -2,7 +2,14 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :new]
 
   def index
-    @offers = Offer.all
+
+    if params[:query].present? || params[:categories].present?
+      @offers = Offer.search_by_name_and_description(params[:query])
+      # @offers = Offer.search_by_category(params[:categories])
+    else
+      @offers = Offer.all
+    end
+
   end
 
   def show
