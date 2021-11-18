@@ -75,3 +75,4 @@ tmp/cache/
 tmp/development_secret.txt
 tmp/pids/server.pid
 tmp/restart.txt
+.env*
