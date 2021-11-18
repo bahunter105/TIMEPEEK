@@ -2,54 +2,50 @@
 <h3 class="text-center title-index-padding" id="title-index">Your Travel Bookings</h3>
 </header>
 
-<h4><%= @user.first_name  %> <%= @user.last_name  %></h4>
+<h3>Hi <%= @user.first_name %> !</h3>
 
-<div id="booking-container">
-  <div class="container">
-    <div class="row">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
       <% if @bookings.nil? %>
-        <h3>You have no bookings!</h3>
+        <h4 class="text-center">You have no bookings!</h4>
       <% else %>
-        <h3>Your bookings</h3>
-        <% @bookings.each do |booking| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card-product">
-              <%= cl_image_tag offer.photo.key, height: 200, width: 400, crop: :fill %>
-              <div class="card-product-infos">
-                <div class="offer-name">Offer name: <%= booking.offer.name  %> </div>
-                <div class="booking-date">Booking date: <%= booking.date  %> </div>
-                <div class="number-of-travellers">Number of Travellers: <%= booking.no_of_travellers  %> </div>
-                <div class="booking-price">Price: €<%= booking.offer.price  %> </div>
-                <div class="confirmation-status">Confirmation Status: </div>
-              </div>
-            </div>
+        <h4 class="text-center">Your bookings</h4>
+          <div>
+            <% @bookings.each do |booking| %>
+              <%= link_to offer_path(booking) do %>
+                <div class="card-product">
+                  <div class="card-product-infos">
+                    <div class="booking-detail">Offer name: <%= booking.offer.name  %> </div>
+                    <div class="booking-detail">Booking date: <%= booking.date  %> </div>
+                    <div class="booking-detail">Number of Travellers: <%= booking.no_of_travellers  %> </div>
+                    <div class="booking-detail">Price: €<%= booking.offer.price  %> </div>
+                    <div class="booking-detail">Confirmation Status: </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
       <% end %>
     </div>
-  </div>
-</div>
-<div class="offer-container">
-  <div id="container">
-    <div class="row">
+    <div class="col-md-6">
       <% if @offers.nil? %>
-        <h3>You have no offers!</h3>
+        <h4 class="text-center">You have no offers!</h4>
       <% else %>
-        <h3>Your offers </h3>
-        <% @offers.each do |offer| %>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-            <div class="card-product">
-              <%= cl_image_tag offer.photo.key, height: 200, width: 400, crop: :fill %>
-              <div class="card-product-infos">
-                <div class="booking-offer-name">Offer name: <%= link_to offer_path(offer) do %> <%= offer.name %> <% end %> </div>
-              </div>
-            </div>
+        <h4 class="text-center">Your offers </h4>
+          <div>
+            <% @offers.each do |offer| %>
+              <%= link_to offer_path(offer) do %>
+                <div class="card-product">
+                  <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
+                  <div class="card-product-infos">
+                    <div class="booking-detail">Offer name: <%= offer.name %> </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
       <% end %>
-      <div id="offer-btn">
-        <%= link_to "Create an Offer", new_offer_path, class: "btn btn-primary" %>
-      </div>
     </div>
   </div>
 </div>
