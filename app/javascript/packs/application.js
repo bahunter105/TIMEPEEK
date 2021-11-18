@@ -23,7 +23,33 @@ import { loadDynamicBannerText } from '../components/typed';
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
-  loadDynamicBannerText();
+  if (document.getElementById('banner-typed-text')){
+    loadDynamicBannerText();
+  }
+
+  const channels = require.context('.', true, /_channel\.js$/)
+  channels.keys().forEach(channels)
+
+  const parentContainer = document.querySelector('.read-more-container');
+  if (parentContainer)  {
+    parentContainer.addEventListener('click', event => {
+
+      const current = event.target;
+
+      const isReadMoreBtn = current.className.includes('read-more-btn');
+
+      if (!isReadMoreBtn) return;
+
+      const currentText = event.target.parentNode.querySelector('.read-more-text');
+
+      currentText.classList.toggle('read-more-text--show');
+
+      current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
+
+    })
+
+  }
+
 });
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -35,25 +61,3 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
-
-const channels = require.context('.', true, /_channel\.js$/)
-channels.keys().forEach(channels)
-
-const parentContainer = document.querySelector('.read-more-container');
-
-parentContainer.addEventListener('click', event => {
-
-  const current = event.target;
-
-  const isReadMoreBtn = current.className.includes('read-more-btn');
-
-  if (!isReadMoreBtn) return;
-
-  const currentText = event.target.parentNode.querySelector('.read-more-text');
-
-  currentText.classList.toggle('read-more-text--show');
-
-  current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
-
-})
