@@ -2,7 +2,7 @@
 <h1 class="text-center title-index-padding" id="title-index"><strong>What's your destination?</strong></h1>
 </header>
 
-<div class="main-container">
+<div id="container-offers">
   <div class="row">
     <% @offers.each do |offer| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
@@ -12,9 +12,16 @@
             <div class="card-trip-infos">
               <div>
                 <h2 class="card-name"><%=offer.name%></h2>
-                <p><i class="fas fa-star"></i>   <%=offer.rating%></p>
+                <div class=text-left>
+                  <p><i class="fas fa-star"></i>   <%= offer.rating.to_f %></p>
+                </div>
               </div>
-              <h2 class="card-trip-pricing">€<%= offer.price %></h2>
+              <div>
+                <h2 class="card-tag"><%= offer.category %></h2>
+                <div class="text-right">
+                  <h2 class="card-trip-pricing">€<%= offer.price %></h2>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>
