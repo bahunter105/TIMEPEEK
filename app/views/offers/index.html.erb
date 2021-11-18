@@ -2,10 +2,35 @@
 <h1 class="text-center title-index-padding" id="title-index"><strong>What's your destination?</strong></h1>
 </header>
 
+
+<%= form_tag offers_path, method: :get do %>
+  <div class= 'd-inline-flex justify-content-between'>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search for your next adventure!",
+      class: "align-self-center"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat align-self-center" %>
+  </div>
+<% end %>
+
+<%# Comment: below is the search bar for category. %>
+<%# <%= form_tag offers_path, method: :get do %>
+  <%# <%= text_field_tag :categories,
+    params[:categories],
+    class: "form-control",
+    placeholder: "Type in the category!"
+  %>
+<%# <% end %>
+
+
+
+
 <div id="container-offers">
   <div class="row">
     <% @offers.each do |offer| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+      <div class="col-md-4 col-lg-4 col-xl-4">
         <%= link_to offer_path(offer) do %>
           <div class="card-trip">
             <%= cl_image_tag offer.photo.key, height: 200, width: 400, crop: :fill %>

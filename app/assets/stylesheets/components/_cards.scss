@@ -64,11 +64,11 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 10px;
   border-radius: 10px;
-  color: rgba($color: #202020, $alpha: 1.0)
+  color: rgba($color: #202020, $alpha: 1.0);
+  min-width: 25vh;
 }
 
 .card-trip > img {
-  height: 200px;
   width: 100%;
   object-fit: cover;
 }
