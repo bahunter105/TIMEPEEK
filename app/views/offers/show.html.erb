@@ -1,8 +1,23 @@
-<div class="container-show">
-  <%= cl_image_tag @offer.photo.key, class:"banner" %>
-  <h1 id="text-center-show"><%= @offer.name %></h1>
+<div class="wrapper-offer">
+		<div class="images-wrapper">
+      <%= cl_image_tag @offer.photo.key, class:"banner-show" %>
+    </div>
+		<div class="side-image-content">
+			<span class="kicker">Religious</span>
+		  <h1 class="text-show"><%= @offer.name %></h1>
 
-  <div id="info-flex">
+
+    <div id="info-flex">
+
+    <div class="info-box">
+      <div class="info-icon">
+      <i class="fas fa-hand-holding-usd"></i>
+      </div>
+      <div class="info-text">
+        <p class="info-title">Price</p>
+        <p>€<%=@offer.price%></p>
+      </div>
+
     <div class="info-box">
       <div class="info-icon">
       <i class="fas fa-users"></i>
@@ -35,36 +50,18 @@
       </div>
     </div>
 
-    <div class="info-box">
-      <div class="info-icon">
-      <i class="fas fa-hand-holding-usd"></i>
-      </div>
-      <div class="info-text">
-        <p class="info-title">Price</p>
-        <p>€<%=@offer.price%></p>
-      </div>
     </div>
   </div>
-
-  <div class="read-more-container">
-    <p>
-      <%= @offer.description%>
-      <span class="read-more-text">
+		  <p class="body-show" style="font-weight:200">
         <%= @offer.description%>
-      </span>
-    </p>
-    <%# <span class="read-more-btn">Read More...</span> %>
-  </div>
-<p>
-<%= @offer.user.first_name %>
-</p>
-  <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#exampleModal">
-  Book Now
-</button>
 
-</div>
+      </p>
+      <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#exampleModal">
+      <%= @offer.user.first_name %> Book Now
+      </button>
 
-<!-- Modal -->
+    </div>
+    <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -82,7 +79,4 @@
         <% end %>
       </div>
 
-      </div>
-    </div>
-  </div>
 </div>
