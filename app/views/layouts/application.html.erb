@@ -15,7 +15,9 @@
     <% unless controller_name == "pages" && action_name == "home" %>
       <%= render 'shared/navbar' %>
     <% end %>
-    <%= yield %>
+    <div class="min-height">
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
 

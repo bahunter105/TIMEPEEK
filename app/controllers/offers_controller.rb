@@ -3,11 +3,18 @@ class OffersController < ApplicationController
 
   def index
 
-    if params[:query].present? || params[:categories].present?
-      @offers = Offer.search_by_name_and_description(params[:query])
-      # @offers = Offer.search_by_category(params[:categories])
+    if params[:categories].present?
+      @offers = Offer.search_by_category(params[:categories])
     else
-      @offers = Offer.all
+      if params[:search].present?
+        if params[:search][:query].present?
+          @offers = Offer.search_by_name_and_description(params[:search][:query])
+        else
+          @offers = Offer.all
+        end
+      else
+        @offers = Offer.all
+      end
     end
 
   end
