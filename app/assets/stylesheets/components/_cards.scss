@@ -24,16 +24,17 @@
 
 .card-product {
   overflow: hidden;
-  height: 160px;
+  height: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 16px;
 }
 
 .card-product img {
   height: 100%;
-  width: 200px;
+  width: 250px;
   object-fit: cover;
 }
 
@@ -49,10 +50,13 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  text-align: right;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
+  align-items: right;
+  text-align: right;
 }
 
 .card-trip {

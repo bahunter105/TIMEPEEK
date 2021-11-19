@@ -1,5 +1,5 @@
 <header>
-<h3 class="text-center title-index-padding" id="title-index">Your Travel Bookings</h3>
+<h3 class="text-center title-index-padding" id="title-index">Dashboard</h3>
 </header>
 
 <h3>Hi <%= @user.first_name %>!</h3>
@@ -8,9 +8,9 @@
   <div class="row">
     <div class="col-md-6">
       <% if @bookings.nil? %>
-        <h4 class="text-center">You have no bookings!</h4>
+        <h4 class="text-center" id="margin-title">You have no bookings!</h4>
       <% else %>
-        <h4 class="text-center">Your bookings</h4>
+        <h4 class="text-center" id="margin-title">Your bookings</h4>
           <div>
             <% @bookings.each do |booking| %>
               <%= link_to offer_path(booking.offer) do %>
@@ -21,7 +21,15 @@
                     <div class="booking-detail">Booking date: <%= booking.date  %> </div>
                     <div class="booking-detail">Number of Travellers: <%= booking.no_of_travellers  %> </div>
                     <div class="booking-detail">Price: €<%= booking.offer.price  %> </div>
-                    <div class="booking-detail">Confirmation Status: </div>
+                    <div class="booking-detail">Confirmation Status:
+                      <% if booking.confirmation_status = nil %>
+                        <button type="button" class="btn btn-info" id="conf-button">Not yet</button>
+                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
+                      <% else %>
+                        <button type="button" class="btn btn-success" id="conf-button">Confirmed</button>
+                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               <% end %>
@@ -31,9 +39,9 @@
     </div>
     <div class="col-md-6">
       <% unless @myoffers.present? %>
-        <h4 class="text-center">You have no offers!</h4>
+        <h4 class="text-center" id="margin-title">You have no offers!</h4>
       <% else %>
-        <h4 class="text-center">Your offers</h4>
+        <h4 class="text-center" id="margin-title">Your offers</h4>
           <div>
             <% @myoffers.each do |offer| %>
               <%= link_to offer_path(offer) do %>
@@ -45,12 +53,27 @@
                 </div>
               <% end %>
             <div>
-            <h4 class="text-center">Booking Requests </h4>
+            <h4 class="text-center" id="margin-title">Booking Requests </h4>
              <% offer.bookings.each do |booking| %>
-                <%= booking.date %>
-                <%= booking.offer.price %>
+              <div class="card-product">
+                <%= cl_image_tag booking.offer.photo.key, height: 300, width: 400, crop: :fill %>
+                <div class="card-product-infos">
+                  <div class="booking-detail">Offer name: <%= booking.offer.name  %> </div>
+                    <div class="booking-detail">Booking date: <%= booking.date  %> </div>
+                    <div class="booking-detail">Number of Travellers: <%= booking.no_of_travellers  %> </div>
+                    <div class="booking-detail">Price: €<%= booking.offer.price  %> </div>
+                    <div class="booking-detail">Confirmation Status:
+                      <% if booking.confirmation_status = nil %>
+                        <button type="button" class="btn btn-success" id="conf-button">Confirm</button>
+                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
+                      <% else %>
+                        <button type="button" class="btn btn-success" id="conf-button">Confirmed</button>
+                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
-            </div>
             <% end %>
           </div>
       <% end %>
