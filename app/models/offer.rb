@@ -5,7 +5,7 @@ class Offer < ApplicationRecord
   ### enter validations!!!
   validates :name, presence: true
   validates :photo, presence: true
-  validates :description, length: { maximum: 500 }
+  validates :description, length: { minimum: 10 }
   validates :max_travellers, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 10 }
   validates :price, presence: true
   validates :date, presence: true

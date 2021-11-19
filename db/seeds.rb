@@ -75,7 +75,7 @@ user2.password_confirmation = '123456'
 user2.encrypted_password = '123456'
 file = File.open('app/assets/images/bob.jpg')
 user2.photo.attach(io: file, filename: 'bob.jpg', content_type: 'image/jpg')
-user2.save!
+user2.save
 puts user2.email
 
 new_offer = Offer.create(
