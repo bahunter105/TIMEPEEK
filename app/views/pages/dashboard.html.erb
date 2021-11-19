@@ -1,17 +1,8 @@
-<% @myoffers.each do |offer| %>
- <%= offer.name %>
- <% offer.bookings.each do |booking| %>
-   <%= booking.date %>
-   <%= booking.price %>
- <% end %>
-<% end %>
-
-
 <header>
 <h3 class="text-center title-index-padding" id="title-index">Your Travel Bookings</h3>
 </header>
 
-<h3>Hi <%= @user.first_name %> !</h3>
+<h3>Hi <%= @user.first_name %>!</h3>
 
 <div class="container-fluid">
   <div class="row">
@@ -22,8 +13,9 @@
         <h4 class="text-center">Your bookings</h4>
           <div>
             <% @bookings.each do |booking| %>
-              <%= link_to offer_path(booking) do %>
+              <%= link_to offer_path(booking.offer) do %>
                 <div class="card-product">
+                  <%= cl_image_tag booking.offer.photo.key, height: 300, width: 400, crop: :fill %>
                   <div class="card-product-infos">
                     <div class="booking-detail">Offer name: <%= booking.offer.name  %> </div>
                     <div class="booking-detail">Booking date: <%= booking.date  %> </div>
@@ -38,10 +30,10 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <% if @myoffers.nil? %>
+      <% unless @myoffers.present? %>
         <h4 class="text-center">You have no offers!</h4>
       <% else %>
-        <h4 class="text-center">Your offers </h4>
+        <h4 class="text-center">Your offers</h4>
           <div>
             <% @myoffers.each do |offer| %>
               <%= link_to offer_path(offer) do %>
@@ -52,13 +44,13 @@
                   </div>
                 </div>
               <% end %>
-            <div>
-            <h4 class="text-center">Your offers Requests </h4>
-             <% offer.bookings.each do |booking| %>
-                <%= booking.date %>
-                <%= booking.price %>
-              <% end %>
-            </div>
+              <div>
+              <h4 class="text-center">Booking requests</h4>
+                <% offer.bookings.each do |booking| %>
+                  <%= booking.date %>
+                  <%= booking.no_of_travellers %>
+                <% end %>
+              </div>
             <% end %>
           </div>
       <% end %>
