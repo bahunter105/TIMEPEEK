@@ -1,18 +1,23 @@
 // Specific CSS for your home-page
 .banner-home {
-    height: 90vh;
+    height: 100vh;
     background-size: cover;
     background-position: bottom;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3px;
+    justify-content: start;
+    padding: 75px 0px 0px 75px;
 }
 
 
+
+#banner-typed-text {
+  font-weight: 400;
+}
+
 .banner-container{
-    background-size: cover;
-    background-position: bottom;
+    background-size: auto;
+    background-position: bottom right;
 }
 
 .p-banner {
@@ -27,11 +32,14 @@
     font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
+    font-family: proxima-nova, monospace;
 }
 
 .title-banner {
-  text-align: start;
-  font-size: 61px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: start;
+    font-size: 61px;
 }
 
 $thick : 3px;
