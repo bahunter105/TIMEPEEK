@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = @offer
     if @booking.save
-      redirect_to offer_bookings_path(@offer)
+      redirect_to dashboard_path(@offer)
     else
       render "offers/show"
     end
