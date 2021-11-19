@@ -1,3 +1,12 @@
+<% @myoffers.each do |offer| %>
+ <%= offer.name %>
+ <% offer.bookings.each do |booking| %>
+   <%= booking.date %>
+   <%= booking.price %>
+ <% end %>
+<% end %>
+
+
 <header>
 <h3 class="text-center title-index-padding" id="title-index">Your Travel Bookings</h3>
 </header>
@@ -29,12 +38,12 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <% if @offers.nil? %>
+      <% if @myoffers.nil? %>
         <h4 class="text-center">You have no offers!</h4>
       <% else %>
         <h4 class="text-center">Your offers </h4>
           <div>
-            <% @offers.each do |offer| %>
+            <% @myoffers.each do |offer| %>
               <%= link_to offer_path(offer) do %>
                 <div class="card-product">
                   <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
@@ -43,6 +52,13 @@
                   </div>
                 </div>
               <% end %>
+            <div>
+            <h4 class="text-center">Your offers Requests </h4>
+             <% offer.bookings.each do |booking| %>
+                <%= booking.date %>
+                <%= booking.price %>
+              <% end %>
+            </div>
             <% end %>
           </div>
       <% end %>
