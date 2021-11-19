@@ -38,8 +38,8 @@
           <% else %>
             <% offer = @offer %>
           <% end %>
+          <%= link_to "My Dashboard", dashboard_path, class: "dropdown-item" %>
           <%# note: above code is to make the "My Bookings" button work. It requires an offer wiwth id 2 %>
-          <%= link_to "My Bookings", offer_bookings_path(2), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
