@@ -44,13 +44,13 @@
                   </div>
                 </div>
               <% end %>
-              <div>
-              <h4 class="text-center">Booking requests</h4>
-                <% offer.bookings.each do |booking| %>
-                  <%= booking.date %>
-                  <%= booking.no_of_travellers %>
-                <% end %>
-              </div>
+            <div>
+            <h4 class="text-center">Booking Requests </h4>
+             <% offer.bookings.each do |booking| %>
+                <%= booking.date %>
+                <%= booking.offer.price %>
+              <% end %>
+            </div>
             <% end %>
           </div>
       <% end %>
