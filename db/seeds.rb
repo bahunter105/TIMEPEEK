@@ -3,6 +3,7 @@ require 'faker'
 require "open-uri"
 
 puts "Cleanig DB"
+Booking.destroy_all
 Offer.destroy_all
 User.destroy_all
 
