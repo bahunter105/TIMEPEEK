@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @offer = Offer.first
     @offers = current_user.offers
@@ -16,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.offer = @offer
+    @booking.confirmation_status = 'Awaiting Confirmation'
     if @booking.save
       redirect_to dashboard_path(@offer)
       # Andre's code = redirect_to offers_path(@offer)
@@ -24,13 +24,29 @@ class BookingsController < ApplicationController
     end
   end
 
+  def confirm_booking
+    @booking = Booking.find(booking_params)
+    @booking.confirmation_status = 'Confirmed!'
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render "pages/dashboard"
+    end
+  end
 
+  def cancel_booking
+    @booking = Booking.find(booking_params)
+    @booking.confirmation_status = 'Cancelled!'
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render "pages/dashboard"
+    end
+  end
 
   private
-
 
   def booking_params
     params.require(:booking).permit(:no_of_travellers, :date, :user, :offer)
   end
-
 end

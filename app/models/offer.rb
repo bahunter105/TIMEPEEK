@@ -11,7 +11,7 @@ class Offer < ApplicationRecord
   validates :date, presence: true
   validates :category, inclusion: {
     in: ['Music', 'Sports', 'Religious', 'Conspiracies', 'Famous battles', 'Famous deaths'],
-    message: "%{value} is not a valid size"
+    message: "%{value} is not a valid category"
   }
   validate :date_must_be_in_the_past
 
