@@ -23,3 +23,7 @@
 .navbar-brand-image {
     width: 90px;
 }
+
+.dropdown-toggle::after {
+    display: none;
+}
