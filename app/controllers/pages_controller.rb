@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @myoffers = current_user.offers
+    @myoffers = current_user.owned_offers
     @bookings = current_user.bookings
   end
 end

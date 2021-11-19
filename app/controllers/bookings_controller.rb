@@ -18,13 +18,19 @@ class BookingsController < ApplicationController
     @booking.offer = @offer
     if @booking.save
       redirect_to dashboard_path(@offer)
+      # Andre's code = redirect_to offers_path(@offer)
     else
       render "offers/show"
     end
   end
 
+
+
   private
+
+
   def booking_params
     params.require(:booking).permit(:no_of_travellers, :date, :user, :offer)
   end
+
 end
