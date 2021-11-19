@@ -12,3 +12,51 @@
   color: rgba($color: #e9d200, $alpha: 1.0);
   text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.75)
 }
+
+.wrapper-offer {
+  padding: 62px;
+  display: flex;
+  width: 100%;
+}
+
+.side-image-content {
+  width: 60%;
+      padding: 0px 33px;
+    position: relative;
+	}
+
+	.images-wrapper {
+    width: 50%;
+	}
+
+.banner-show{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kicker{
+  float: left;
+  margin-left: 10px;
+    background: #222;
+    color: white;
+    font-size: 0.75em;
+    margin-bottom: 1.3em;
+    padding: 5px 11px;
+    text-transform: uppercase;
+    position: absolute;
+    left: 16px;
+}
+
+.text-show {
+  padding-top: 74px;
+	font-size: 1em;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 78px;
+}
+
+.body-show {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 200;
+  margin-left: 49px;
+}
