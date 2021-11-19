@@ -21,15 +21,7 @@
                     <div class="booking-detail">Booking date: <%= booking.date  %> </div>
                     <div class="booking-detail">Number of Travellers: <%= booking.no_of_travellers  %> </div>
                     <div class="booking-detail">Price: €<%= booking.offer.price  %> </div>
-                    <div class="booking-detail">Confirmation Status:
-                      <% if booking.confirmation_status = nil %>
-                        <button type="button" class="btn btn-info" id="conf-button">Not yet</button>
-                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
-                      <% else %>
-                        <button type="button" class="btn btn-success" id="conf-button">Confirmed</button>
-                        <button type="button" class="btn btn-danger" id="conf-button">Cancel</button>
-                      <% end %>
-                    </div>
+                    <div class="booking-detail">Confirmation Status: <%= booking.confirmation_status %></div>
                   </div>
                 </div>
               <% end %>
